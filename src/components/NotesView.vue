@@ -19,15 +19,9 @@
     </div>
     <div class="row">
       <div v-for="note in notes" :key="note.id" class="col s4">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title">{{note.title}}</span>
-                <p>{{note.description}}</p>
-              </div>
-              <div class="card-action">
-                <button class="waves-effect waves-light btn" @click="removeNote(note.id)">Remove</button>
-              </div>
-            </div>
+        <NoteCard 
+          :note="note"
+        />
       </div>
     </div>
   </div>
@@ -36,9 +30,15 @@
 <script>
 
 import * as vue from 'vue'
+
+import NoteCard from './NoteCard'
+
 import { useNotes } from '../use/notes'
 
 export default {
+  components: {
+    NoteCard
+  },
   setup() {
     const noteTitle = vue.ref('')
     const noteDescription = vue.ref('')
@@ -47,14 +47,7 @@ export default {
       add: addNote,
       remove: removeNote,
       notesArray: notes,
-      notes: notesMap
-    } = useNotes([
-      { title: 'Say hi to coworkers', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' },
-      { id: 2, title: 'Car Keys are on the couch', description: 'Lorem Ipsum has been the industry standard dummy text ever since the 1500s' },
-      { title: 'Water bottle is by the door', description: 'Lorem Ipsum is not simply random text.' }
-    ])
-
-    console.log(notesMap)
+    } = useNotes()
     
     return { notes, noteTitle, noteDescription, addNote, removeNote }
   }
