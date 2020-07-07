@@ -1,19 +1,16 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <!-- <CapacityComponent /> -->
-    <ToDoList />
+  <div class="container">
+    <h2>Add a Note</h2>
+      <NotesView />
   </div>
 </template>
 
 <script>
-// import CapacityComponent from './components/CapacityComponent.vue'
-import ToDoList from './components/ToDoList'
+import NotesView from './components/NotesView';
 export default {
   name: 'App',
   components: {
-    // CapacityComponent,
-    ToDoList
+    NotesView
   }
 }
 </script>
