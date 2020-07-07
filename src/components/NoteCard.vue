@@ -18,8 +18,6 @@ export default {
       require: true
     }
   },
-  setup() {
-    
-  }
+  setup() {}
 }
 </script>
