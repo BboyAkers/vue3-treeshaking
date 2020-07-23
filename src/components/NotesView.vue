@@ -19,7 +19,8 @@
     </div>
     <div class="row">
       <div v-for="note in notes" :key="note.id" class="col s4">
-        <NoteCard 
+        <NoteCard
+          @remove="removeNote"
           :note="note"
         />
       </div>
