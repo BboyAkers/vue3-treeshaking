@@ -22,8 +22,6 @@ export function useNotes(initial = []) {
     })
   }
 
-
-
   return {
     notes: vue.readonly(notes),
     notesArray: vue.computed(() => [...notes.value.values()]),
