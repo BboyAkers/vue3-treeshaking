@@ -1,11 +1,11 @@
 <template>
   <div class="card blue-grey darken-1">
     <div class="card-content white-text">
-      <span class="card-title">{{note.title}}</span>
-      <p>{{descriptionTruncated }}</p>
+      <span class="card-title">{{ fancyTitleQuotes }}</span>
+      <p>{{ descriptionTruncated }}</p>
     </div>
     <div class="card-action">
-      <button class="waves-effect waves-light btn" @click="$emit('remove',note.id)">Remove</button>
+      <button class="waves-effect waves-light btn red" @click="$emit('remove',note.id)">Remove</button>
     </div>
   </div>
 </template>
@@ -23,7 +23,10 @@ export default {
     const descriptionTruncated = vue.computed(() => {
       return helperMethods.truncateText(props.note.description)
     })
-  return { descriptionTruncated }
+    const fancyTitleQuotes = vue.computed(() => {
+      return helperMethods.fancyQuotes(props.note.title)
+    })
+  return { descriptionTruncated, fancyTitleQuotes }
   }
 }
 </script>
