@@ -14,7 +14,7 @@ const QUOTE_REGEX = new RegExp(
 );
 
 const helperMethods = {
-  //trucate text function
+  //truncate text function
   truncateText(text) {
     const minimumLength = 100;
     if (!text.length || text.length < 1) return;
@@ -26,7 +26,7 @@ const helperMethods = {
   fancyQuotes(str) {
     // reset our regex
     QUOTE_REGEX.lastIndex = -1;
-    // wrap the string in spaces so that it matches at the beginnign or the end then snip them off using slice later
+    // wrap the string in spaces so that it matches at the beginning or the end then snip them off using slice later
     return ` ${str} `
       .replace(QUOTE_REGEX, (_, a, b, c, d) => {
         const value = a || b || c || d; // only one of these will be defined
